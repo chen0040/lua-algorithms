@@ -1,7 +1,8 @@
 package = "LuaAlgorithms"
 version = "1.0-1"
 source = {
-   url = "..." -- We don't have one yet
+   url = "https://github.com/chen0040/lua-algorithms",
+   tag = "v1.0",
 }
 description = {
    summary = "Lua Algorithm Library",
@@ -10,12 +11,15 @@ description = {
       algorithms and data structures
    ]],
    homepage = "https://github.com/chen0040/lua-algorithms",
-   license = "MIT/X11" -- or whatever you like
+   license = "MIT/X11"
 }
 dependencies = {
    "lua >= 5.1, < 5.4"
-   -- If you depend on other rocks, add them here
 }
 build = {
-   -- We'll start here.
+   type = "builtin",
+   modules = {
+      -- Note the required Lua syntax when listing submodules as keys
+      ["data.stack"] = "src/data/stack.lua",
+   }
 }

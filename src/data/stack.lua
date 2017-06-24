@@ -55,5 +55,7 @@ function stack.LinkedListStack:isEmpty()
     return self.N == 0;
 end
 
+return stack;
+
 
 
