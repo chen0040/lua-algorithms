@@ -29,5 +29,6 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: "lua_install/bin/luarocks install luacheck"
   config.vm.provision "shell", inline: "lua_install/bin/luarocks install busted"
   config.vm.provision "shell", inline: "lua_install/bin/luarocks install luacov"
+  config.vm.provision "shell", inline: "lua_install/bin/luarocks install lua-path"
   config.vm.provision "shell", inline: "lua_install/bin/luarocks install luacov-coveralls"
 end

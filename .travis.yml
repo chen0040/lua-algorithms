@@ -18,6 +18,7 @@ install:
   - luarocks install busted
   - luarocks install luacov
   - luarocks install luacov-coveralls
+  - luarocks install lua-path
 
 script:
   - luacheck --no-unused-args --std max+busted spec
