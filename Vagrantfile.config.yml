@@ -1,0 +1,5 @@
+ip: 192.168.10.11
+synced_folder:
+    host_path: "/vagrant/lua"
+    guest_path: "./"
+

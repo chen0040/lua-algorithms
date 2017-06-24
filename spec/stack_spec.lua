@@ -1,4 +1,4 @@
-local class = require 'data.stack'
+local stack = require 'data.stack'
 
 describe('stack', function()
 

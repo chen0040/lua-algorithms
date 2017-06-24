@@ -20,17 +20,9 @@ install:
   - luarocks install luacov-coveralls
 
 script:
-  - luacheck --no-unused-args --std max+busted *.lua spec
+  - luacheck --no-unused-args --std max+busted spec
   - busted --verbose --coverage
 
 after_success:
   - luacov-coveralls --exclude $TRAVIS_BUILD_DIR/lua_install
 
-branches:
-  except:
-    - gh-pages
-
-notifications:
-  email:
-    on_success: change
-    on_failure: always
