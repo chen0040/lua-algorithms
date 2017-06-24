@@ -14,6 +14,8 @@ function stack.Node.create(value)
 
     s.value = value;
     s.next = nil;
+
+    return s;
 end
 
 stack.LinkedListStack = {};
