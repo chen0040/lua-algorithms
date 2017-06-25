@@ -21,8 +21,30 @@ function list.ArrayList.create()
     return s
 end
 
+function list.ArrayList.createWith(a, aLen, N)
+    s = {}
+    setmetatable(s, list.ArrayList)
+
+    s.a = a
+    s.aLen = aLen
+    s.N = N
+    return s
+end
+
 function list.create()
     return list.ArrayList.create()
+end
+
+function list.createWith(a, aLen, N)
+    return list.ArrayList.createWith(a, aLen, N)
+end
+
+function list.ArrayList:makeCopy()
+    temp = {}
+    for key,val in pairs(self.a) do
+        temp[key] = val
+    end
+    return list.ArrayList.createWith(temp, self.aLen, self.N)
 end
 
 function list.ArrayList:add(value)

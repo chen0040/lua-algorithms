@@ -33,6 +33,22 @@ describe('list', function()
             assert.equal(s:isEmpty(), true)
         end)
     end)
+
+    describe('makeCopy()', function()
+        it('should create a separate copy', function()
+            local s = list.create()
+            for i = 0,9 do
+                s:add(i)
+            end
+            local s2 = s:makeCopy()
+            assert.equal(s:size(), s2:size())
+            for i = 0,9 do
+                assert.equal(s:get(i), s2:get(i))
+            end
+
+
+        end)
+    end)
 end)
 
 
