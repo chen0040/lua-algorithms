@@ -97,6 +97,65 @@ function queue.ArrayQueue.create()
 
     s.head = 0
     s.tail = 0
+    s.a = { nil }
+    s.aLen = 0
+
+    return s
+end
+
+function queue.ArrayQueue:enqueue(value)
+    self.a[self.tail] = value
+    self.tail = self.tail + 1
+    if self.tail - self.head == self.aLen then
+        self:resize(self.aLen * 2)
+    end
+
+end
+
+function queue.ArrayQueue:size()
+    return self.tail - self.head
+end
+
+function queue.ArrayQueue:isEmpty()
+    return self.tail == s.head
+end
+
+function queue.ArrayQueue:dequeue(value)
+    if self.tail == self.head then
+        return nil
+    end
+
+    value = self.a[self.head]
+    self.head = self.head + 1
+    if self.tail - self.head == math.floor(self.aLen / 4) then
+        self:resize(math.floor(self.aLen / 2))
+    end
+
+    return value
+end
+
+function queue.ArrayQueue:resize(newSize)
+    temp = {}
+    for i = 0,(newSize-1) do
+        if i < self.tail - self.head then
+            temp[i] = nil
+        else
+            temp[i] = self.a[i + self.head]
+        end
+    end
+
+    self.a = temp
+    self.aLen = newSize
+    self.tail = self.tail - self.head
+    self.head = 0
+end
+
+function queue.ArrayQueue:enumerate()
+    temp = {}
+    for i = self.head,self.tail-1 do
+        temp[i - self.head] = self.a[i]
+    end
+    return temp
 end
 
 return queue
