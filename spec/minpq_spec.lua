@@ -21,6 +21,8 @@ describe('minpq', function()
             assert.equal(s:delMin(), 20)
             assert.equal(s:delMin(), 50)
             assert.equal(s:delMin(), 100)
+
+            assert.equal(s:isEmpty(), true)
         end)
     end)
 end)

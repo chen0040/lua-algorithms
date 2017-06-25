@@ -74,3 +74,24 @@ print(s:dequeue()) -- return 30
 
 ```
 
+### MinPQ
+
+```lua
+local minpq = require('lualgorithms.data.minpq')
+local comparer = function(a1, a2) return a1 - a2 end -- method that return negative value if if a1 < a2; 0 if a1 == a2; positive otherwise
+local s = minpq.create(comparer)
+s:enqueue(10)
+s:enqueue(100)
+s:enqueue(20)
+s:enqueue(50)
+print(s:size()) -- return 4
+print(s:isEmpty()) -- return false
+
+print(s:delMin()) -- return 10
+print(s:delMin()) -- return 20
+print(s:delMin()) -- return 50
+print(s:delMin()) -- return 100
+
+print(s:isEmpty()) -- return true
+```
+
