@@ -73,6 +73,22 @@ function minpq:swim(k)
     end
 end
 
+function minpq:sink(k)
+    while k <= self.N do
+        child = k * 2
+        if child < self.N and self:less(self.s[child+1], self.s[child]) then
+            child = child + 1
+        end
+        if self:less(self.s[child], self.s[k]) then
+            self:exchange(self.s, child, k)
+            k = child
+        else
+            break
+        end
+    end
+
+end
+
 function minpq:less(a1, a2)
     return a1 - a2 < 0
 end
