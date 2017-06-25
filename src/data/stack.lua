@@ -36,18 +36,18 @@ function stack.create()
 end
 
 function stack.LinkedListStack:push(value)
-    oldFirst = self.first
+    local oldFirst = self.first
     self.first = stack.Node.create(value)
     self.first.next = oldFirst
     self.N = self.N + 1
 end
 
 function stack.LinkedListStack:pop()
-    oldFirst = self.first
+    local oldFirst = self.first
     if oldFirst == nil then
         return nil
     end
-    value = oldFirst.value
+    local value = oldFirst.value
     self.first = oldFirst.next
     self.N = self.N - 1
     return value
@@ -62,9 +62,9 @@ function stack.LinkedListStack:isEmpty()
 end
 
 function stack.LinkedListStack:enumerate()
-    x = self.first
-    index = 0
-    temp = {}
+    local x = self.first
+    local index = 0
+    local temp = {}
     while x ~= nil do
         temp[index] = x.value
         index = index + 1
@@ -98,7 +98,7 @@ function stack.ArrayStack:push(value)
 end
 
 function stack.ArrayStack:resize(newSize)
-    temp = {}
+    local temp = {}
     for i = 0,(newSize-1) do
         if self.a[i] == nil then
             temp[i] = nil
@@ -116,7 +116,7 @@ function stack.ArrayStack:pop()
         return nil
     end
 
-    value = self.a[self.N-1]
+    local value = self.a[self.N-1]
     self.N = self.N - 1
 
     if self.N == math.floor(self.aLen / 4) then
@@ -134,7 +134,7 @@ function stack.ArrayStack:isEmpty()
 end
 
 function stack.ArrayStack:enumerate()
-    temp = {}
+    local temp = {}
     for i = 0,(self.N-1) do
         temp[i] = self.a[i]
     end

@@ -15,7 +15,7 @@ queue.Node = {}
 queue.Node.__index = queue.Node
 
 function queue.Node.create(value)
-    s = {}
+    local s = {}
     setmetatable(s, queue.Node)
 
     s.value = value
@@ -25,7 +25,7 @@ function queue.Node.create(value)
 end
 
 function queue.LinkedListQueue.create()
-    s = {}
+    local s = {}
     setmetatable(s, queue.LinkedListQueue)
 
     s.first = nil
@@ -40,7 +40,7 @@ function queue.create()
 end
 
 function queue.LinkedListQueue:enqueue(value)
-    oldLast = self.last
+    local oldLast = self.last
     self.last = queue.Node.create(value)
     if oldLast ~= nil then
         oldLast.next = self.last
@@ -52,12 +52,12 @@ function queue.LinkedListQueue:enqueue(value)
 end
 
 function queue.LinkedListQueue:dequeue()
-    oldFirst = self.first
+    local oldFirst = self.first
     if oldFirst == nil then
         return nil
     end
     self.first = oldFirst.next
-    value = oldFirst.value
+    local value = oldFirst.value
     if self.first == nil then
         self.last = nil
     end
@@ -74,11 +74,11 @@ function queue.LinkedListQueue:isEmpty()
 end
 
 function queue.LinkedListQueue:enumerate()
-    index = 0
-    temp = {}
-    x = self.first
+    local index = 0
+    local temp = {}
+    local x = self.first
     while x ~= nil do
-        value = x.value
+        local value = x.value
         temp[index] = value
         index = index + 1
         x = x.next
@@ -92,7 +92,7 @@ queue.ArrayQueue = {}
 queue.ArrayQueue.__index = queue.ArrayQueue
 
 function queue.ArrayQueue.create()
-    s = {}
+    local s = {}
     setmetatable(s, queue.ArrayQueue)
 
     s.head = 0
@@ -117,7 +117,7 @@ function queue.ArrayQueue:size()
 end
 
 function queue.ArrayQueue:isEmpty()
-    return self.tail == s.head
+    return self.tail == self.head
 end
 
 function queue.ArrayQueue:dequeue(value)
@@ -135,7 +135,7 @@ function queue.ArrayQueue:dequeue(value)
 end
 
 function queue.ArrayQueue:resize(newSize)
-    temp = {}
+    local temp = {}
     for i = 0,(newSize-1) do
         if i < self.tail - self.head then
             temp[i] = nil
@@ -151,7 +151,7 @@ function queue.ArrayQueue:resize(newSize)
 end
 
 function queue.ArrayQueue:enumerate()
-    temp = {}
+    local temp = {}
     for i = self.head,self.tail-1 do
         temp[i - self.head] = self.a[i]
     end

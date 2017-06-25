@@ -12,7 +12,7 @@ list.ArrayList = {}
 list.ArrayList.__index = list.ArrayList
 
 function list.ArrayList.create()
-    s = {}
+    local s = {}
     setmetatable(s, list.ArrayList)
 
     s.a = { nil }
@@ -22,7 +22,7 @@ function list.ArrayList.create()
 end
 
 function list.ArrayList.createWith(a, aLen, N)
-    s = {}
+    local s = {}
     setmetatable(s, list.ArrayList)
 
     s.a = a
@@ -40,7 +40,7 @@ function list.createWith(a, aLen, N)
 end
 
 function list.ArrayList:makeCopy()
-    temp = {}
+    local temp = {}
     for key,val in pairs(self.a) do
         temp[key] = val
     end
@@ -60,7 +60,7 @@ function list.ArrayList:set(index,value)
 end
 
 function list.ArrayList:get(index)
-    temp = self.a[index]
+    local temp = self.a[index]
     return temp
 end
 
@@ -92,12 +92,12 @@ function list.ArrayList:indexOf(value)
 end
 
 function list.ArrayList:remove(value)
-    index = self:indexOf(value)
+    local index = self:indexOf(value)
     self:removeAt(index)
 end
 
 function list.ArrayList:resize(newSize)
-    temp = {}
+    local temp = {}
     for i = 0,(newSize-1) do
         if self.a[i] == nil then
             temp[i] = nil
@@ -119,7 +119,7 @@ function list.ArrayList:isEmpty()
 end
 
 function list.ArrayList:enumerate()
-    temp = {}
+    local temp = {}
     for i = 0,(self.N-1) do
         temp[i] = self.a[i]
     end

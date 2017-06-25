@@ -10,13 +10,14 @@ local minpq = {}
 
 minpq.__index = minpq
 
-function minpq.create()
-    s = {}
+function minpq.create(comparer)
+    local s = {}
     setmetatable(s, minpq)
 
-    s.a = { nil }
+    s.s = { nil }
     s.aLen = 1
     s.N = 0
+    s.comparer = comparer
 
     return s
 end
@@ -35,7 +36,7 @@ function minpq:delMin()
         return nil
     end
 
-    value = self.s[1]
+    local value = self.s[1]
     self:exchange(self.s, 1, self.N)
     self.N = self.N - 1
     self:sink(1)
@@ -48,23 +49,20 @@ function minpq:delMin()
 end
 
 function minpq:resize(newSize)
-    temp = {}
+    local temp = {}
     for i = 0,(newSize-1) do
-        if self.a[i] == nil then
-            temp[i] = nil
-        else
-            temp[i] = self.a[i]
-        end
+        temp[i] = self.s[i]
     end
 
-    self.a = temp
+    self.s = temp
     self.aLen = newSize
 end
 
 function minpq:swim(k)
-    while k < 1 do
-        parent = math.floor(k / 2)
-        if self:less(k, parent) then
+    while k > 1 do
+
+        local parent = math.floor(k / 2)
+        if self:less(self.s[k], self.s[parent]) then
             self:exchange(self.s, k, parent)
             k = parent
         else
@@ -74,8 +72,8 @@ function minpq:swim(k)
 end
 
 function minpq:sink(k)
-    while k <= self.N do
-        child = k * 2
+    while k * 2 <= self.N do
+        local child = k * 2
         if child < self.N and self:less(self.s[child+1], self.s[child]) then
             child = child + 1
         end
@@ -89,13 +87,23 @@ function minpq:sink(k)
 
 end
 
+function minpq:size()
+    return self.N
+end
+
+function minpq:isEmpty()
+    return self.N == 0
+end
+
 function minpq:less(a1, a2)
-    return a1 - a2 < 0
+    return self.comparer(a1, a2) < 0
 end
 
 function minpq:exchange(s, i, j)
-    temp = s[i]
+    local temp = s[i]
     s[i] = s[j]
     s[j] = temp
 end
+
+return minpq
 
