@@ -27,5 +27,26 @@ describe('queue', function()
 
         end)
     end)
+
+    describe('queue()', function()
+        it('should enqueue and dequeue correctly', function()
+            local queue = require('data.queue')
+            local s = queue.create()
+            s:enqueue(10)
+            s:enqueue(20)
+            s:enqueue(30)
+            assert.equal(s:size(), 3)
+            assert.equal(s:isEmpty(), false)
+            for key,value in pairs(s:enumerate()) do
+                print(key, value)
+            end
+            assert.equal(s:dequeue(), 10)
+            assert.equal(s:dequeue(), 20)
+            assert.equal(s:dequeue(), 30)
+            assert.equals(s:size(), 0)
+            assert.equals(s:isEmpty(), true)
+
+        end)
+    end)
 end)
 

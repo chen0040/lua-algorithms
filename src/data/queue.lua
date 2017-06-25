@@ -35,6 +35,10 @@ function queue.LinkedListQueue.create()
     return s
 end
 
+function queue.create()
+    return queue.LinkedListQueue.create()
+end
+
 function queue.LinkedListQueue:enqueue(value)
     oldLast = self.last
     self.last = queue.Node.create(value)
@@ -82,6 +86,17 @@ function queue.LinkedListQueue:enumerate()
 
     return temp
 
+end
+
+queue.ArrayQueue = {}
+queue.ArrayQueue.__index = queue.ArrayQueue
+
+function queue.ArrayQueue.create()
+    s = {}
+    setmetatable(s, queue.ArrayQueue)
+
+    s.head = 0
+    s.tail = 0
 end
 
 return queue
