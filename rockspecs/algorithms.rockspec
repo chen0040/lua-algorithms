@@ -5,10 +5,10 @@ source = {
    tag = "v1.0.1",
 }
 description = {
-   summary = "Lua Algorithm Library",
+   summary = "Lua Algorithms Library",
    detailed = [[
-      This library contains lua implementation for
-      algorithms and data structures
+      Lua implementation for algorithms and data structures
+      found in Java
    ]],
    homepage = "https://github.com/chen0040/lua-algorithms",
    license = "MIT/X11"
@@ -21,5 +21,6 @@ build = {
    modules = {
       -- Note the required Lua syntax when listing submodules as keys
       ["data.stack"] = "src/data/stack.lua",
+      ["data.list"] = "src/data/list.lua",
    }
 }

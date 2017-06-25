@@ -8,6 +8,9 @@ describe('stack', function()
       s:push(1)
       s:push(2)
       s:push(3)
+      for index,val in pairs(s:enumerate()) do
+        print(index, val)
+      end
       print(s:size())
       assert.equal(s:size(), 3)
       assert.equal(s:isEmpty(), false)
@@ -25,6 +28,9 @@ describe('stack', function()
       s:push(1)
       s:push(2)
       s:push(3)
+      for index,val in pairs(s:enumerate()) do
+        print(index, val)
+      end
       print(s:size())
       assert.equal(s:size(), 3)
       assert.equal(s:isEmpty(), false)
@@ -42,6 +48,9 @@ describe('stack', function()
       s:push(1)
       s:push(2)
       s:push(3)
+      for index,val in pairs(s:enumerate()) do
+        print(index, val)
+      end
       print(s:size())
       assert.equal(s:size(), 3)
       assert.equal(s:isEmpty(), false)
