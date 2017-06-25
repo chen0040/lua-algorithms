@@ -55,3 +55,22 @@ s:remove(2) -- s becomes [4]
 s:removeAt(0) -- s is now empty
 ```
 
+### Queue
+
+```lua
+ local queue = require('lualgorithms.data.queue')
+local s = queue.create()
+s:enqueue(10)
+s:enqueue(20)
+s:enqueue(30)
+print(s:size()) -- return 3
+print(s:isEmpty()) -- return false
+for key,value in pairs(s:enumerate()) do
+    print(key, value)
+end
+print(s:dequeue()) -- return 10
+print(s:dequeue()) -- return 20
+print(s:dequeue()) -- return 30
+
+```
+
