@@ -95,3 +95,25 @@ print(s:delMin()) -- return 100
 print(s:isEmpty()) -- return true
 ```
 
+
+### MaxPQ
+
+```lua
+local maxpq = require('lualgorithms.data.maxpq')
+local comparer = function(a1, a2) return a1 - a2 end -- method that return negative value if if a1 < a2; 0 if a1 == a2; positive otherwise
+local s = maxpq.create(comparer)
+s:enqueue(10)
+s:enqueue(100)
+s:enqueue(20)
+s:enqueue(50)
+print(s:size()) -- return 4
+print(s:isEmpty()) -- return false
+
+print(s:delMax()) -- return 100
+print(s:delMax()) -- return 50
+print(s:delMax()) -- return 20
+print(s:delMax()) -- return 10
+
+print(s:isEmpty()) -- return true
+```
+
