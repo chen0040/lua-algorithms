@@ -3,61 +3,123 @@
 --- DateTime: 24/6/2017 1:50 PM
 ---
 
-local stack = {};
+local stack = {}
 
-stack.Node = {};
-stack.Node.__index = stack.Node;
+stack.Node = {}
+stack.Node.__index = stack.Node
 
 function stack.Node.create(value)
-    local s = {};
-    setmetatable(s, stack.Node);
+    local s = {}
+    setmetatable(s, stack.Node)
 
-    s.value = value;
-    s.next = nil;
+    s.value = value
+    s.next = nil
 
-    return s;
+    return s
 end
 
-stack.LinkedListStack = {};
-stack.LinkedListStack.__index = stack.LinkedListStack;
+stack.LinkedListStack = {}
+stack.LinkedListStack.__index = stack.LinkedListStack
 
 function stack.LinkedListStack.create()
-    local s = {};
-    setmetatable(s, stack.LinkedListStack);
+    local s = {}
+    setmetatable(s, stack.LinkedListStack)
 
-    s.first = nil;
-    s.N = 0;
+    s.first = nil
+    s.N = 0
 
-    return s;
+    return s
+end
+
+function stack.create()
+    return stack.LinkedListStack.create()
 end
 
 function stack.LinkedListStack:push(value)
-    oldFirst = self.first;
-    self.first = stack.Node.create(value);
-    self.first.next = oldFirst;
-    self.N = self.N + 1;
+    oldFirst = self.first
+    self.first = stack.Node.create(value)
+    self.first.next = oldFirst
+    self.N = self.N + 1
 end
 
 function stack.LinkedListStack:pop(value)
-    oldFirst = self.first;
+    oldFirst = self.first
     if oldFirst == nil then
-        return nil;
+        return nil
     end
-    value = oldFirst.value;
-    self.first = oldFirst.next;
-    self.N = self.N - 1;
-    return value;
+    value = oldFirst.value
+    self.first = oldFirst.next
+    self.N = self.N - 1
+    return value
 end
 
 function stack.LinkedListStack:size(value)
-    return self.N;
+    return self.N
 end
 
 function stack.LinkedListStack:isEmpty()
-    return self.N == 0;
+    return self.N == 0
 end
 
-return stack;
+stack.ArrayStack = {}
+stack.ArrayStack.__index = stack.ArrayStack
+
+function stack.ArrayStack.create()
+    local s = {}
+    setmetatable(s, stack.ArrayStack)
+
+    s.a = { nil }
+    s.N = 0
+    s.aLen = 1
+
+    return s
+end
+
+function stack.ArrayStack:push(value)
+    self.a[self.N] = value
+    self.N = self.N + 1
+    if self.N == self.aLen then
+        self:resize(self.aLen * 2)
+    end
+end
+
+function stack.ArrayStack:resize(newSize)
+    temp = {}
+    for i = 0,(newSize-1) do
+        if self.a[i] == nil then
+            temp[i] = nil
+        else
+            temp[i] = self.a[i]
+        end
+    end
+
+    self.a = temp
+    self.aLen = newSize
+end
+
+function stack.ArrayStack:pop()
+    if self.N == 0 then
+        return nil
+    end
+
+    value = self.a[self.N-1]
+    self.N = self.N - 1
+
+    if self.N == self.aLen / 4 then
+        self:resize(self.aLen / 2)
+    end
+    return value
+end
+
+function stack.ArrayStack:size()
+    return self.N
+end
+
+function stack.ArrayStack:isEmpty()
+    return self.N == 0
+end
+
+return stack
 
 
 
