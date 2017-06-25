@@ -24,6 +24,34 @@ s:push(3)
 print(s:size())
 print(s:isEmpty())
 print(s:pop())
+for index,val in pairs(s:enumerate()) do
+    print(index, val)
+end
 ```
 
+### List
+
+The list behaves the same as the Java ArrayList API, and is zero-based indexing.
+
+```lua
+local list = require 'lualgorithms.data.list'
+
+local s = list.create()
+s:add(1) -- s becomes [1]
+s:add(2) -- s becomes [1, 2]
+s:add(3) -- s becomes [1, 2, 3]
+s:set(2, 4) -- s becomes [1, 2, 4]
+
+for index,val in pairs(s:enumerate()) do
+    print(index, val)
+end
+for i = 0,s:size()-1 do
+    print(s:get(i))
+end
+print(s:size())
+print(s:isEmpty())
+s:removeAt(0) -- s becomes [2, 4]
+s:remove(2) -- s becomes [4]
+s:removeAt(0) -- s is now empty
+```
 

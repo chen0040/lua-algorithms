@@ -37,6 +37,11 @@ function list.ArrayList:set(index,value)
     self.a[index] = value
 end
 
+function list.ArrayList:get(index)
+    temp = self.a[index]
+    return temp
+end
+
 function list.ArrayList:removeAt(index)
     if index == self.N-1 then
         self.N = self.N - 1
