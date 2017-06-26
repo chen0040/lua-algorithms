@@ -1,8 +1,8 @@
 package = "lualgorithms"
-version = "1.0-4"
+version = "1.0-3"
 source = {
    url = "git://github.com/chen0040/lua-algorithms.git",
-   tag = "v1.0.4",
+   tag = "v1.0.3",
 }
 description = {
    summary = "Lua Algorithms Library",
@@ -25,6 +25,5 @@ build = {
       ["lualgorithms.data.queue"] = "src/data/queue.lua",
       ["lualgorithms.data.minpq"] = "src/data/minpq.lua",
       ["lualgorithms.data.maxpq"] = "src/data/maxpq.lua",
-      ["lualgorithms.data.hashmap"] = "src/data/hashmap.lua",
    }
 }

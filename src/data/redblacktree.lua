@@ -52,7 +52,7 @@ function redblacktree:_put(x, key, value)
     local comp = self.comparator(key, x.key)
     if comp < 0 then
         x.left = self:_put(x.left, key, value)
-    elseif x > 0 then
+    elseif comp > 0 then
         x.right = self:_put(x.right, key, value)
     else
         x.value = value
@@ -118,6 +118,14 @@ function redblacktree:_min(x)
     return self:_min(x.left)
 end
 
+function redblacktree:_max(x)
+    if x.right == nil then
+        return x
+    end
+
+    return self:_max(x.right)
+end
+
 function redblacktree:_delMin(x)
     if x.left == nil then
         return x.right
@@ -149,9 +157,36 @@ function redblacktree:_remove(x, key)
         end
     end
 
-    x.count = 1 + self:count(x.left) + self:count(x.right)
+    if x ~= nil then
+        x.count = 1 + self:count(x.left) + self:count(x.right)
+    end
 
     return x
+end
+
+function redblacktree:minKey()
+    if self.root == nil then
+        return nil
+    end
+
+    local x = self:_min(self.root)
+    if x ~= nil then
+        return x.key
+    end
+    return nil
+end
+
+function redblacktree:maxKey()
+    if self.root == nil then
+        return nil
+    end
+
+    local x= self:_max(self.root)
+
+    if x ~= nil then
+        return x.key
+    end
+    return nil
 end
 
 return redblacktree

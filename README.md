@@ -142,3 +142,30 @@ s:remove(450)
 print(s:isEmpty()) -- return  true
 ```
 
+### SortedMap (Left-Leaning Red Black Tree)
+
+```lua
+local map = require('data.redblacktree')
+local comparator = function(a1, a2) return a1 - a2 end
+local s = map.create(comparator)
+s:put(100, 2)
+s:put(200, 4)
+s:put(450, 2)
+print(s:minKey()) -- return 100
+print(s:maxKey()) -- return 450
+print(s:get(100)) -- return  2
+print(s:get(200)) -- return  4
+print(s:get(450)) -- return  2
+print(s:get(99)) -- return  nil
+print(s:containsKey(99)) -- return  false
+print(s:containsKey(100)) -- return  true
+print(s:size()) -- return  3
+print(s:isEmpty()) -- return  false
+print(s:remove(100)) -- return  2
+print(s:containsKey(100)) -- return  false
+print(s:size()) -- return  2
+s:remove(200)
+s:remove(450)
+print(s:isEmpty()) -- return  true
+```
+
