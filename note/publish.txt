@@ -1,6 +1,6 @@
 # follow this link: https://github.com/luarocks/luarocks/wiki/creating-a-rock
 
-git tag v1.0.3
+git tag v1.0.4
 git push --tags
 
-luarocks pack rockspecs/lualgorithms-1.0-3.rockspec
+luarocks publish rockspecs/lualgorithms-1.0-4.rockspec --api-key=<api-key>
