@@ -99,11 +99,7 @@ end
 function list.ArrayList:resize(newSize)
     local temp = {}
     for i = 0,(newSize-1) do
-        if self.a[i] == nil then
-            temp[i] = nil
-        else
-            temp[i] = self.a[i]
-        end
+        temp[i] = self.a[i]
     end
 
     self.a = temp
