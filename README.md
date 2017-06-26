@@ -120,7 +120,7 @@ print(s:isEmpty()) -- return true
 ### HashMap
 
 ```lua
-local hashmap = require('data.hashmap')
+local hashmap = require('lualgorithms.data.hashmap')
 local hash_func = function(x) return x % 1000 end
 local s = hashmap.create(hash_func)
 s:put(100, 2)
@@ -145,7 +145,7 @@ print(s:isEmpty()) -- return  true
 ### SortedMap (Left-Leaning Red Black Tree)
 
 ```lua
-local map = require('data.redblacktree')
+local map = require('lualgorithms.data.redblacktree')
 local comparator = function(a1, a2) return a1 - a2 end
 local s = map.create(comparator)
 s:put(100, 2)
