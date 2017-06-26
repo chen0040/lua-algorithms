@@ -117,3 +117,28 @@ print(s:delMax()) -- return 10
 print(s:isEmpty()) -- return true
 ```
 
+### HashMap
+
+```lua
+local hashmap = require('data.hashmap')
+local hash_func = function(x) return x % 1000 end
+local s = hashmap.create(hash_func)
+s:put(100, 2)
+s:put(200, 4)
+s:put(450, 2)
+print(s:get(100)) -- return  2
+print(s:get(200)) -- return  4
+print(s:get(450)) -- return  2
+print(s:get(99)) -- return  nil
+print(s:containsKey(99)) -- return  false
+print(s:containsKey(100)) -- return  true
+print(s:size()) -- return  3
+print(s:isEmpty()) -- return  false
+print(s:remove(100)) -- return  2
+print(s:containsKey(100)) -- return  false
+print(s:size()) -- return  2
+s:remove(200)
+s:remove(450)
+print(s:isEmpty()) -- return  true
+```
+

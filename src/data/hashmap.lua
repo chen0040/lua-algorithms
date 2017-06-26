@@ -34,12 +34,13 @@ function hashmap.create(hash)
 
     s.s = {}
     s.N = 0
+    s.hash = hash
 
     return s
 end
 
 function hashmap:put(key, value)
-    local h = self:hash(key)
+    local h = self.hash(key)
     local x = self.s[h]
     local found = false
     while x ~= nil do
@@ -61,7 +62,7 @@ function hashmap:put(key, value)
 end
 
 function hashmap:get(key)
-    local h = self:hash(key)
+    local h = self.hash(key)
     local x = self.s[h]
     while x ~= nil do
         if x.key == key then
@@ -73,7 +74,7 @@ function hashmap:get(key)
 end
 
 function hashmap:containsKey(key)
-    local h = self:hash(key)
+    local h = self.hash(key)
     local x = self.s[h]
     while x ~= nil do
         if x.key == key then
@@ -88,12 +89,12 @@ function hashmap:size()
     return self.N
 end
 
-function hashmap:isEmpy()
+function hashmap:isEmpty()
     return self.N == 0
 end
 
 function hashmap:remove(key)
-    local h = self:hash(key)
+    local h = self.hash(key)
     local x = self.s[h]
     local prev_x = nil
     while x ~= nil do
@@ -104,6 +105,7 @@ function hashmap:remove(key)
             else
                 prev_x.next = x.next
             end
+            self.N = self.N - 1
             return value
         end
         prev_x = x
