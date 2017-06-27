@@ -31,6 +31,21 @@ describe('redblacktree', function()
             s:remove(200)
             s:remove(450)
             assert.equal(s:isEmpty(), true)
+
+            for i = 0,100 do
+                s:put(i, i)
+            end
+
+            for i = 0,100 do
+                assert.equal(s:get(i), i)
+            end
+
+            for i = 0,100 do
+                s:remove(i)
+            end
+
+            assert.equal(s:isEmpty(), true)
+
         end)
     end)
 end)
