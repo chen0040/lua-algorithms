@@ -21,6 +21,7 @@ function redblacktree.Node.create(key, value)
     s.left = nil
     s.right = nil
     s.count = 0
+    s.red = true
 
     return s
 end
@@ -58,7 +59,36 @@ function redblacktree:_put(x, key, value)
         x.value = value
     end
 
+    if self:isRed(x.left) == false and self:isRed(x.right) then
+        x = self:rotateLeft(x)
+    elseif self:isRed(x.left) and self:isRed(x.left.left) then
+        x= self:rotateRight(x)
+    elseif self:isRed(x.left) and self:isRed(x.right) then
+        self:flipColor(x)
+    end
+
     x.count = self:count(x.left) + self:count(x.right) + 1
+    return x
+end
+
+function redblacktree:isRed(x)
+    if x == nil then
+        return false
+    end
+    return x.red
+end
+
+function redblacktree:flipColor(x)
+    x.left.red = false
+    x.right.red = false
+    x.red = true
+end
+
+function redblacktree:rotateLeft(x)
+    return x
+end
+
+function redblacktree:rotateRight(x)
     return x
 end
 
