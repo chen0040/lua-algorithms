@@ -255,3 +255,27 @@ for i=0,(a:size()-1) do
     print(a:get(i))
 end
 ```
+
+### Sorting (Merge Sort)
+
+```lua
+local list = require("lualgorithms.data.list")
+local a = list.create()
+a:add(100)
+a:add(200)
+a:add(300)
+a:add(600)
+a:add(200)
+a:add(400)
+a:add(340)
+a:add(120)
+a:add(10)
+
+local mergesort = require("lualgorithms.sorting.mergesort")
+mergesort.sort(a, function(a1, a2) return a1 - a2 end)
+
+for i=0,(a:size()-1) do
+    print(a:get(i))
+end
+```
+
