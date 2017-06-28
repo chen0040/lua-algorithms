@@ -29,5 +29,6 @@ build = {
       ["lualgorithms.data.redblacktree"] = "src/data/redblacktree.lua",
       ["lualgorithms.sorting.selection"] = "src/sorting/selection.lua",
       ["lualgorithms.sorting.insertion"] = "src/sorting/insertion.lua",
+      ["lualgorithms.sorting.shellsort"] = "src/sorting/shellsort.lua",
    }
 }
