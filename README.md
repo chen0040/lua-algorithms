@@ -117,6 +117,24 @@ print(s:delMax()) -- return 10
 print(s:isEmpty()) -- return true
 ```
 
+### HashSet
+
+```lua
+local hashset = require('lualgorithms.data.hashset')
+local hash_func = function(x) return x % 1000 end
+local s = hashset.create(hash_func)
+s:add(100, 2)
+s:add(200, 4)
+s:add(450, 2)
+
+print(s:contains(99)) -- return false
+print(s:contains(100)) -- return true
+print(s:size()) -- return 3
+print(s:isEmpty()) -- return false
+s:remove(100)
+print(s:contains(100)) -- return false)
+```
+
 ### HashMap
 
 ```lua
