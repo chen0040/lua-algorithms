@@ -6,7 +6,7 @@
 -- To change this template use File | Settings | File Templates.
 --
 
-describe("Quick Sort", function()
+describe("3 Ways Quick Sort", function()
     it("should sort ascendingly", function()
         local list = require("data.list")
         local a = list.create()
@@ -20,8 +20,8 @@ describe("Quick Sort", function()
         a:add(120)
         a:add(10)
 
-        local quicksort = require("sorting.quicksort")
-        quicksort.sort(a, function(a1, a2) return a1 - a2 end)
+        local quicksort3ways = require("sorting.quicksort3ways")
+        quicksort3ways.sort(a, function(a1, a2) return a1 - a2 end)
 
         for i=0,(a:size()-2) do
             assert.is_true(a:get(i) <= a:get(i+1))

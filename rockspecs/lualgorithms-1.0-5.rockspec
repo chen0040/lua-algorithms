@@ -33,5 +33,6 @@ build = {
       ["lualgorithms.sorting.shellsort"] = "src/sorting/shellsort.lua",
       ["lualgorithms.sorting.mergesort"] = "src/sorting/mergesort.lua",
       ["lualgorithms.sorting.quicksort"] = "src/sorting/quicksort.lua",
+      ["lualgorithms.sorting.quicksort3ways"] = "src/sorting/quicksort3ways.lua",
    }
 }
