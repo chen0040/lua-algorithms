@@ -356,3 +356,18 @@ for i=0,(a:size()-1) do
 end
 ```
 
+## Shuffling
+
+```lua
+local list = require('lualgorithms.data.list')
+local s = list.create()
+for i=1,10 do
+    s:add(i)
+end
+local shuffling = require('lualgorithms.shuffling')
+shuffling.shuffle(s)
+for i=0,(s:size()-1) do
+    print(s:get(i))
+end
+```
+

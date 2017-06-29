@@ -8,7 +8,17 @@
 
 describe('Shuffling', function()
     it('should shuffle a list', function()
-    
+local list = require('data.list')
+        local s = list.create()
+        for i=1,10 do
+            s:add(i)
+        end
+        local shuffling = require('shuffling')
+        shuffling.shuffle(s)
+        for i=0,(s:size()-1) do
+            print(s:get(i))
+        end
+
     end)
 end)
 
