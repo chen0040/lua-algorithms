@@ -31,7 +31,7 @@ for index,val in pairs(s:enumerate()) do
 end
 ```
 
-### List
+### ArrayList
 
 The list behaves the same as the Java ArrayList API, and is zero-based indexing.
 
@@ -190,6 +190,8 @@ print(s:isEmpty()) -- return  true
 ```
 
 ## Sorting
+
+As in Java, the sorting is performed on ArrayList by default (which is lualgorithms.data.list).
 
 Note that the default is to sort ascendingly, which can be reversed via the comparator function pass in as the second parameter.
 
