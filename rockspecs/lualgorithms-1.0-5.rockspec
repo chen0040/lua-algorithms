@@ -35,5 +35,8 @@ build = {
       ["lualgorithms.sorting.quicksort"] = "src/sorting/quicksort.lua",
       ["lualgorithms.sorting.quicksort3ways"] = "src/sorting/quicksort3ways.lua",
       ["lualgorithms.sorting.heapsort"] = "src/sorting/heapsort.lua",
+      ["lualgorithms.shuffling"] = "src/shuffling.lua",
+      ["lualgorithms.binarysearch"] = "src/binarysearch.lua",
+      ["lualgorithms.unionfind"] = "src/unionfind.lua",
    }
 }

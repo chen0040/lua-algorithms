@@ -371,3 +371,31 @@ for i=0,(s:size()-1) do
 end
 ```
 
+## Binary Search on Sorted ArrayList
+
+```lua
+local comparator = function(a1, a2) return a1 - a2 end
+local s = create_a_list_that_sorts_ascendingly(comparator)
+
+if s.isSortedAscedningly() then
+    local binarysearch = require('lualgorithms.binarysearch')
+    print(binarysearch.indexOf(s, 10, comparator)) -- return the index of value 10 in the array list s
+else
+    print('error! list must be sorted before performing binary search')    
+end
+```
+
+## Union Find
+
+```lua
+local unionfind = require('lualgorithms.unionfind').create()
+unionfind:union(1, 2)
+unionfind:union(4, 6)
+unionfind:union(7, 4)
+
+print(unionfind:connected(6, 7)) -- return true
+print(unionfind:connected(4, 7)) -- return true
+print(unionfind:connected(6, 4)) -- return true
+print(unionfind:connected(6, 1)) -- return false
+print(unionfind:connected(7, 2)) -- return false
+```

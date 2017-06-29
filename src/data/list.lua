@@ -122,4 +122,24 @@ function list.ArrayList:enumerate()
     return temp
 end
 
+function list.ArrayList:isSortedAscendingly(comparator)
+    for i=0,(self:size()-2) do
+        if comparator(a:get(i), a:get(i+1)) > 0 then
+            return false
+        end
+
+    end
+    return true
+end
+
+function list.ArrayList:isSortedDescendingly(comparator)
+    for i=0,(self:size()-2) do
+        if comparator(a:get(i), a:get(i+1)) < 0 then
+            return false
+        end
+
+    end
+    return true
+end
+
 return list
