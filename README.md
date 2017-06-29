@@ -189,6 +189,46 @@ s:remove(450)
 print(s:isEmpty()) -- return  true
 ```
 
+### Tries (R-way Tries)
+
+```lua
+local rwaytries = require('lualgorithms.tries.rwaytries')
+local s = rwaytries.create()
+
+s:put("Hello", "World")
+s:put("Hi", "Morning")
+s:put("How", "are you?")
+
+print(s:isEmpty()) -- return false
+print(s:size()) -- return 3
+
+print(s:get("Hello")) -- return "World"
+print(s:get("Hi")) -- return "Morning"
+print(s:get("How")) -- return "are you?"
+print(s:containsKey("Hello")) -- return true
+print(s:containsKey("hello")) -- return false
+
+s:remove("Hello")
+
+print(s:containsKey("Hello")) -- return false
+print(s:size()) -- return 2
+
+local keys = s:keys()
+for i=0, keys:size()-1 do
+    print(keys:get(i))
+end
+
+s:put('there', 'is')
+s:put('the', 'ninja')
+s:put('those', 'turtles')
+s:put('these', 'ducks')
+s:put('turles', 'ducks')
+keys = s:keysWithPrefix('th')
+for i=0, keys:size()-1 do
+    print(keys:get(i))
+end
+```
+
 ## Sorting
 
 As in Java, the sorting is performed on ArrayList by default (which is lualgorithms.data.list).

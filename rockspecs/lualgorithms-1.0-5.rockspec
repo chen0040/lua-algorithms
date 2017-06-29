@@ -27,6 +27,7 @@ build = {
       ["lualgorithms.data.maxpq"] = "src/data/maxpq.lua",
       ["lualgorithms.data.hashmap"] = "src/data/hashmap.lua",
       ["lualgorithms.data.hashset"] = "src/data/hashset.lua",
+      ["lualgorithms.tries.rwaytries"] = "src/tries/rwaytries.lua",
       ["lualgorithms.data.redblacktree"] = "src/data/redblacktree.lua",
       ["lualgorithms.sorting.selection"] = "src/sorting/selection.lua",
       ["lualgorithms.sorting.insertion"] = "src/sorting/insertion.lua",
