@@ -2,7 +2,12 @@
 
 This library was developed with the purpose of making general algorithms and data structures available in Java language also available in Lua.
 
+# Features
+
 The library covers commonly used data structures (ArrayList, Stack, Queue, Priority Queue, Balanced Search Tree, HashMap, Set, Tries) and algorithms (various sorting and search algorithms, shuffling, union find, etc)
+
+For developers on Windows platform, a Vagrantfile is provided in the source code to allow them to run luarocks under window environment.
+
 
 # Install
 
