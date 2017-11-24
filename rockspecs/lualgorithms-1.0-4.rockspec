@@ -20,12 +20,12 @@ build = {
    type = "builtin",
    modules = {
       -- Note the required Lua syntax when listing submodules as keys
-      ["lualgorithms.data.stack"] = "src/data/stack.lua",
-      ["lualgorithms.data.list"] = "src/data/list.lua",
-      ["lualgorithms.data.queue"] = "src/data/queue.lua",
-      ["lualgorithms.data.minpq"] = "src/data/minpq.lua",
-      ["lualgorithms.data.maxpq"] = "src/data/maxpq.lua",
-      ["lualgorithms.data.hashmap"] = "src/data/hashmap.lua",
-      ["lualgorithms.data.redblacktree"] = "src/data/redblacktree.lua",
+      ["lualgorithms.data.stack"] = "src/lualgorithms/data/stack.lua",
+      ["lualgorithms.data.list"] = "src/lualgorithms/data/list.lua",
+      ["lualgorithms.data.queue"] = "src/lualgorithms/data/queue.lua",
+      ["lualgorithms.data.minpq"] = "src/lualgorithms/data/minpq.lua",
+      ["lualgorithms.data.maxpq"] = "src/lualgorithms/data/maxpq.lua",
+      ["lualgorithms.data.hashmap"] = "src/lualgorithms/data/hashmap.lua",
+      ["lualgorithms.data.redblacktree"] = "src/lualgorithms/data/redblacktree.lua",
    }
 }

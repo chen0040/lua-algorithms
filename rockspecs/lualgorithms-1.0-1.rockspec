@@ -20,7 +20,7 @@ build = {
    type = "builtin",
    modules = {
       -- Note the required Lua syntax when listing submodules as keys
-      ["data.stack"] = "src/data/stack.lua",
-      ["data.list"] = "src/data/list.lua",
+      ["data.stack"] = "src/lualgorithms/data/stack.lua",
+      ["data.list"] = "src/lualgorithms/data/list.lua",
    }
 }

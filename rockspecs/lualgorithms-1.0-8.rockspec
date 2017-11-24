@@ -1,8 +1,8 @@
 package = "lualgorithms"
-version = "1.0-6"
+version = "1.0-8"
 source = {
    url = "git://github.com/chen0040/lua-algorithms.git",
-   tag = "v1.0.6",
+   tag = "v1.0.8",
 }
 description = {
    summary = "Lua Algorithms Library",
