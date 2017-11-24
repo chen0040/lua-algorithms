@@ -116,7 +116,7 @@ function rwaytries:isEmpty()
 end
 
 function rwaytries:keys()
-    local queue = require('data.list').create()
+    local queue = require('lualgorithms.data.list').create()
 
     self:collect(self.root, '', queue)
     return queue
@@ -125,7 +125,7 @@ end
 function rwaytries:keysWithPrefix(prefix)
     local x = self:_get(self.root, prefix, 0)
 
-    local queue = require('data.list').create()
+    local queue = require('lualgorithms.data.list').create()
 
     self:collect(x, prefix, queue)
     return queue

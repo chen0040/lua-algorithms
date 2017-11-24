@@ -9,7 +9,7 @@
 describe('maxpq', function()
     describe('maxpq()', function()
         it('should return max first', function()
-            local maxpq = require('data.maxpq')
+            local maxpq = require('lualgorithms.data.maxpq')
             local s = maxpq.create(function(a1, a2) return a1 - a2 end)
             s:enqueue(10)
             s:enqueue(100)

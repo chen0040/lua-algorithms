@@ -8,7 +8,7 @@
 
 describe("Binary Search", function()
     it("should find 10 at index 0", function()
-        local list = require("data.list")
+        local list = require("lualgorithms.data.list")
         local a = list.create()
         a:add(100)
         a:add(200)
@@ -20,11 +20,11 @@ describe("Binary Search", function()
         a:add(120)
         a:add(10)
 
-        local quicksort = require("sorting.quicksort")
+        local quicksort = require("lualgorithms.sorting.quicksort")
         local comparator = function(a1, a2) return a1 - a2 end
         quicksort.sort(a, comparator)
 
-        local binarysearch = require('binarysearch')
+        local binarysearch = require('lualgorithms.binarysearch')
         assert.equal(binarysearch.indexOf(a, 10, comparator), 0)
 
     end)

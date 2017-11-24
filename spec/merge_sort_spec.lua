@@ -8,7 +8,7 @@
 
 describe("Merge Sort", function()
     it("should sort ascendingly", function()
-        local list = require("data.list")
+        local list = require("lualgorithms.data.list")
         local a = list.create()
         a:add(100)
         a:add(200)
@@ -20,7 +20,7 @@ describe("Merge Sort", function()
         a:add(120)
         a:add(10)
 
-        local mergesort = require("sorting.mergesort")
+        local mergesort = require("lualgorithms.sorting.mergesort")
         mergesort.sort(a, function(a1, a2) return a1 - a2 end)
 
         for i=0,(a:size()-2) do

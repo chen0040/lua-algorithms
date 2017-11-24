@@ -9,7 +9,7 @@
 describe('minpq', function()
     describe('minpq()', function()
         it('should return min first', function()
-            local minpq = require('data.minpq')
+            local minpq = require('lualgorithms.data.minpq')
             local s = minpq.create(function(a1, a2) return a1 - a2 end)
             s:enqueue(10)
             s:enqueue(100)

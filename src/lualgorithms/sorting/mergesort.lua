@@ -10,7 +10,7 @@ local mergesort = {}
 mergesort.__index = mergesort
 
 function mergesort.sort(a, comparator)
-    local aux = require('data.list').create()
+    local aux = require('lualgorithms.data.list').create()
     for i=0,(a:size()-1) do
         aux:add(0)
     end

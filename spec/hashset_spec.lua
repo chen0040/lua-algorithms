@@ -9,7 +9,7 @@
 describe('hashset', function()
     describe('hashset()', function()
         it('should put and get and remove correctly', function()
-            local hashset = require('data.hashset')
+            local hashset = require('lualgorithms.data.hashset')
             local hash_func = function(x) return x % 1000 end
             local s = hashset.create(hash_func)
             s:add(100, 2)

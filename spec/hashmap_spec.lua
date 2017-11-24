@@ -9,7 +9,7 @@
 describe('hashmap', function()
     describe('hashmap()', function()
         it('should put and get and remove correctly', function()
-            local hashmap = require('data.hashmap')
+            local hashmap = require('lualgorithms.data.hashmap')
             local hash_func = function(x) return x % 1000 end
             local s = hashmap.create(hash_func)
             s:put(100, 2)

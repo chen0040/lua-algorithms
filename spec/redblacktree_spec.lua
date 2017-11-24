@@ -9,7 +9,7 @@
 describe('redblacktree', function()
     describe('redblacktree()', function()
         it('should put and get and remove correctly', function()
-            local redblacktree = require('data.redblacktree')
+            local redblacktree = require('lualgorithms.data.redblacktree')
             local comparator = function(a1, a2) return a1 - a2 end
             local s = redblacktree.create(comparator)
             s:put(100, 2)

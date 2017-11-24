@@ -8,7 +8,7 @@
 
 describe("R-Ways Search Tries", function()
     it("should store and retrives string-based key value", function()
-        local rwaytries = require('tries.rwaytries')
+        local rwaytries = require('lualgorithms.tries.rwaytries')
         local s = rwaytries.create()
 
         s:put("Hello", "World")

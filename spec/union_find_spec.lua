@@ -8,7 +8,7 @@
 
 describe("Union Find", function()
     it("should connect points union together", function()
-        local unionfind = require('unionfind').create()
+        local unionfind = require('lualgorithms.unionfind').create()
         unionfind:union(1, 2)
         unionfind:union(4, 6)
         unionfind:union(7, 4)

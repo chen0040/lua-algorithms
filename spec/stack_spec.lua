@@ -1,4 +1,4 @@
-local stack = require 'data.stack'
+local stack = require 'lualgorithms.data.stack'
 
 describe('stack', function()
 
